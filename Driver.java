@@ -9,21 +9,22 @@ import java.io.PrintWriter;
 public class Driver {
 
     public static void main(String[] args) {
-        boolean done = false;           //keeps the loop going
+        
         User currentUser = null;       //whoever is logged in
         int userCount = 1;
+        Scanner scan = new Scanner(System.in);
 
+        boolean done = false;           //keeps the loop going
+        boolean loggedIn = false;
         while(!done){
-            Scanner scan = new Scanner(System.in);
 
-            boolean loggedIn = false;
             while(!loggedIn){
                 System.out.println("Welcome to the Mock Social Media Platform");
                 System.out.println("========================================================================\n");
                 System.out.println("Please select an option:");
-                System.out.println("(A) Log in as Existing User");
-                System.out.println("(B) Create an Account");
-                System.out.println("(C) Exit");
+                System.out.println("\t(A) Log in as Existing User");
+                System.out.println("\t(B) Create an Account");
+                System.out.println("\t(C) Exit");
 
                 boolean doneMenu = false;
                 while(!doneMenu){
@@ -90,24 +91,94 @@ public class Driver {
                     else if(option.equalsIgnoreCase("C")){
                         System.out.println("========================================================================\n");
                         System.out.println("Goodbye!");
-                        doneMenu = true;
-                        done=true;
+                        break;
                     }
                     else{
                         System.out.println("Invalid Try Again....");
                     }
                 }
             }
-            System.out.println("========================================================================\n");
+            //Account menu
+            System.out.println("========================================================================");
             System.out.println("Account Profile:");
+            System.out.println("========================================================================");
             System.out.println("UserID: " + currentUser.getUserID());
             System.out.println("Username: " + currentUser.getName());
             System.out.println("Email: " + currentUser.getEmail());
             System.out.println("Username: " + currentUser.getName());
+            System.out.println("========================================================================");
+            System.out.println("Options");
+            System.out.println("\t(A) Home");               //See everyone's Posts
+            System.out.println("\t(B) Check My Posts");     //See only user's posts, can create/delete friends or send a DM
+            System.out.println("\t(C) Friends");            //Manage Friends, add or delete
+            System.out.println("\t(D) Notifications");      //look at notifications
+            System.out.println("\t(E) Change Password");    //Change password
+            System.out.println("\t(F) Log Out");
 
+            boolean accountOption = false;
+            while(!accountOption){
+                String option = scan.nextLine();
 
+                //Will output all posts by every user from oldest to newest
+                if(option.equalsIgnoreCase("A")){
+                    
+                }
 
+                //Will oly show the user's posts from oldest to newest
+                else if(option.equalsIgnoreCase("B")){
+
+                }
+
+                //Output the user's list of friends. Can manage them or send a dm
+                else if(option.equalsIgnoreCase("C")){
+                    
+                }
+
+                //Output messages and friends requests
+                else if(option.equalsIgnoreCase("D")){
+                    
+                }
+
+                //prompt the user to change password
+                else if(option.equalsIgnoreCase("E")){
+                    //Standard Security check when changing password
+                    System.out.print("Enter Old Password: ");
+                    String old = scan.next();
+                    if(old.equals(currentUser.getPassword())){
+                        boolean validPassword = false;
+                        //creating the new password
+                        while(!validPassword){
+                            System.out.print("Enter New Password: ");
+                            String newPassword = scan.next();
+                            System.out.println();
+                            System.out.print("Confirm New Password: ");
+                            String confirm = scan.next();
+                            System.out.println();
+
+                            if(newPassword.equals(confirm)){
+                                currentUser.setPassword(newPassword);
+                                validPassword = true;
+                            } else{
+                                System.out.println("Incorrect Match. Try Again\n");
+                            }
+                        }
+                    } else{
+                        System.out.println("Incorrect Match. Try Again\n");
+                    }
+                }
+                //log out and go back to log in menu
+                else if(option.equalsIgnoreCase("F")){
+                    System.out.println("========================================================================");
+                    System.out.println("Logging Out\n");
+                    currentUser = null;
+                    loggedIn = false;
+                }
+                else{
+                    System.out.println("Invalid Try Again....");
+                }
+            }
         }
+        scan.close();
        
     }
 }
