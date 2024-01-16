@@ -43,10 +43,10 @@ public class Driver {
                     //Username
                     boolean validName = false;
                     while(!validName){
-                        System.out.println("Enter your Username (Must be more than 3 characters): ");
-                        String input = scan.next();
-                        if((input.length() <= 3)){
-                            System.out.println("Invalid Try again");
+                        System.out.print("Enter your Username (Must be more than 3 characters): ");
+                        username = scan.next();
+                        if((username.length() <= 3)){
+                            System.out.println("\nInvalid Try again");
                         } else{
                             validName = true;
                         }
@@ -56,15 +56,37 @@ public class Driver {
                     //Password
                     boolean validPassword = false;
                     while(!validPassword){
-                        
+                        System.out.print("Enter New Password: ");
+                        password = scan.next();
+                        System.out.println();
+                        System.out.print("Confirm New Password: ");
+                        String confirm = scan.next();
+                        System.out.println();
+
+                        if(password.equals(confirm)){
+                            validPassword = true;
+                        } else{
+                            System.out.println("Incorrect Match. Try Again\n");
+                        }
                     }
+
+                    //Email
+                    System.out.print("Enter your email: ");
+                    email = scan.next();
                     doneMenu = true;
+
+                    //Creating User Object
+                    System.out.println();
+                    System.out.println("========================================================================\n");
+                    System.out.println("Creating Account...");
+                    currentUser = new User(userCount, username, password, email);
+                    userCount++;
 
                 }
                 //Leaving
                 else if(option.equalsIgnoreCase("C")){
                     System.out.println("========================================================================\n");
-                    System.out.println("Leaving");
+                    System.out.println("Goodbye!");
                     doneMenu = true;
                     done=true;
                 }
