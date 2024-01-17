@@ -1,4 +1,4 @@
-import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class User {
@@ -7,8 +7,8 @@ public class User {
     private String name;
     private String password;
     private String email;
-    private LinkedList<User> friends;
-    private LinkedList<Post> posts;
+    private List<User> friends;
+    private List<Post> posts;
     private Queue<Notification> notifications;
 
     public User(int userID, String username, String password, String email){
@@ -60,11 +60,11 @@ public class User {
         this.friends = friends;
     }
 
-    public LinkedList<Post> getPosts() {
+    public List<Post> getPosts() {
         return this.posts;
     }
 
-    public void setPosts(LinkedList<Post> posts) {
+    public void setPosts(List<Post> posts) {
         this.posts = posts;
     }
 

@@ -9,7 +9,12 @@ import java.io.PrintWriter;
 public class Driver {
 
     public static void main(String[] args) {
-        
+
+        //First create all already existing users from text file
+
+
+
+        //User Unteface
         User currentUser = null;       //whoever is logged in
         int userCount = 1;
         Scanner scan = new Scanner(System.in);
@@ -84,6 +89,9 @@ public class Driver {
                         System.out.println("Creating Account...\n");
                         currentUser = new User(userCount, username, password, email);
                         userCount++;
+                        //Add new user to the text file to save login informtion
+
+                        //break out of loop
                         doneMenu = true;
                         loggedIn = true;
                     }
@@ -98,6 +106,7 @@ public class Driver {
                     }
                 }
             }
+            
             //Account menu
             System.out.println("========================================================================");
             System.out.println("Account Profile:");
