@@ -52,11 +52,11 @@ public class User {
         this.email = email;
     }
 
-    public LinkedList<User> getFriends() {
+    public List<User> getFriends() {
         return this.friends;
     }
 
-    public void setFriends(LinkedList<User> friends) {
+    public void setFriends(List<User> friends) {
         this.friends = friends;
     }
 
