@@ -1,5 +1,6 @@
 import java.util.List;
 import java.util.Queue;
+import java.util.Scanner;
 
 public class User{
     
@@ -21,6 +22,7 @@ public class User{
         this.email = email;
     }
 
+    //Getter and Setter Methods
     public int getUserID() {
         return this.userID;
     }
@@ -77,13 +79,24 @@ public class User{
         this.notifications = notifications;
     }
 
-    //send a NOTIFICATION to the friend
+    /*
+     * This method will send a message to a user
+     * The other user will then have a notification
+     * added to their list of notifications
+     * 
+     * Param: User friend
+     */
     public void message(User friend){
 
     }
 
+    /*
+     * This method will create a Post object
+     * and will add it to the list of posts
+     * the user has
+     */
     public void createPost(){
-
+        Scanner scan = new Scanner(System.in);
     }
 
 
