@@ -1,7 +1,7 @@
 import java.util.List;
 import java.util.Queue;
 
-public class User {
+public class User{
     
     private int userID;
     private String name;
@@ -11,13 +11,14 @@ public class User {
     private List<Post> posts;
     private Queue<Notification> notifications;
 
-    public User(int userID, String username, String password, String email){
+    FriendsManager fManager = new FriendsManager();
+    NotificationsManager nManager = new NotificationsManager();
 
+    public User(int userID, String username, String password, String email){
         this.userID = userID;
         this.name = username;
         this.password = password;
         this.email = email;
-
     }
 
     public int getUserID() {
@@ -76,6 +77,17 @@ public class User {
         this.notifications = notifications;
     }
 
+    //send a NOTIFICATION to the friend
+    public void message(User friend){
+
+    }
+
+    public void createPost(){
+
+    }
+
+
+    
     
 
 }
